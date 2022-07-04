@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/grey"
+    tools:context=".MenuActivity">
+
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/ScientificCalculator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:backgroundTint="@color/grey"
+        android:src="@drawable/calculator_svgrepo_com"
+        app:layout_constraintEnd_toStartOf="@+id/DiscountCalculator"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </androidx.appcompat.widget.AppCompatImageButton>
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="9dp"
+        android:text="Scientific"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/ScientificCalculator"
+        app:layout_constraintStart_toStartOf="@+id/ScientificCalculator"
+        app:layout_constraintTop_toBottomOf="@+id/ScientificCalculator" />
+
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/areaConvertor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:backgroundTint="@color/grey"
+        android:src="@drawable/area"
+        app:layout_constraintEnd_toStartOf="@+id/VolumeConvertor"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/lengthconvertor"
+        app:layout_constraintTop_toBottomOf="@+id/textView3">
+
+    </androidx.appcompat.widget.AppCompatImageButton>
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="9dp"
+        android:text="Discount"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/DiscountCalculator"
+        app:layout_constraintStart_toStartOf="@+id/DiscountCalculator"
+        app:layout_constraintTop_toBottomOf="@+id/DiscountCalculator" />
+
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/bmiCalculator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:backgroundTint="@color/grey"
+        android:src="@drawable/body_mass_index_svgrepo_com"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/DiscountCalculator"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </androidx.appcompat.widget.AppCompatImageButton>
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="9dp"
+        android:text="BMI"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/bmiCalculator"
+        app:layout_constraintStart_toStartOf="@+id/bmiCalculator"
+        app:layout_constraintTop_toBottomOf="@+id/bmiCalculator" />
+
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/lengthconvertor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:backgroundTint="@color/grey"
+        android:src="@drawable/scale_svgrepo_com"
+        app:layout_constraintEnd_toStartOf="@+id/areaConvertor"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView4">
+
+    </androidx.appcompat.widget.AppCompatImageButton>
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="9dp"
+        android:text="Length"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/lengthconvertor"
+        app:layout_constraintStart_toStartOf="@+id/lengthconvertor"
+        app:layout_constraintTop_toBottomOf="@+id/lengthconvertor" />
+
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/TempConvertor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:backgroundTint="@color/grey"
+        android:src="@drawable/thermometer_svgrepo_com"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView7">
+
+    </androidx.appcompat.widget.AppCompatImageButton>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="9dp"
+        android:text="Temperature"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/TempConvertor"
+        app:layout_constraintStart_toStartOf="@+id/TempConvertor"
+        app:layout_constraintTop_toBottomOf="@+id/TempConvertor" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="9dp"
+        android:text="Area"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/areaConvertor"
+        app:layout_constraintStart_toStartOf="@+id/areaConvertor"
+        app:layout_constraintTop_toBottomOf="@+id/areaConvertor" />
+
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/DiscountCalculator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:backgroundTint="@color/grey"
+        android:src="@drawable/discount_svgrepo_com"
+        app:layout_constraintEnd_toStartOf="@+id/bmiCalculator"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/ScientificCalculator"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </androidx.appcompat.widget.AppCompatImageButton>
+
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/VolumeConvertor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:backgroundTint="@color/grey"
+        android:src="@drawable/cube_svgrepo_com"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/areaConvertor"
+        app:layout_constraintTop_toBottomOf="@+id/textView5">
+
+    </androidx.appcompat.widget.AppCompatImageButton>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="9dp"
+        android:text="Volume"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/VolumeConvertor"
+        app:layout_constraintStart_toStartOf="@+id/VolumeConvertor"
+        app:layout_constraintTop_toBottomOf="@+id/VolumeConvertor" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
