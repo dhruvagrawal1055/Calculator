@@ -139,10 +139,10 @@ class TempConvertor : AppCompatActivity() {
                 textView2.text = "${textView.text}"
             }
             if(arr[i]=="F" && arr2[j]=="C"){
-                textView2.text = "${((num - 32 * 5) / 9)}"
+                textView2.text = "${((num - 32) * 5) / 9}"
             }
             if(arr[i]=="C" && arr2[j] == "F"){
-                textView2.text = "${((num * 5 / 9)+num)}"
+                textView2.text = "${((num * 1.8)+num)}"
             }
             if(arr[i]=="F" && arr2[j]=="F"){
                 textView2.text = "${textView.text}"
