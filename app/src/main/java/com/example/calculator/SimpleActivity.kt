@@ -1,13 +1,18 @@
 package com.example.calculator
 
+import android.content.ContentValues
 import android.content.Intent
+import android.database.Cursor
+import android.database.sqlite.SQLiteDatabase
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
 import android.widget.*
+import androidx.appcompat.app.AlertDialog
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class SimpleActivity : AppCompatActivity() {
@@ -36,6 +41,15 @@ class SimpleActivity : AppCompatActivity() {
     //Declaring text fields
     lateinit var edtTxteqn: EditText
     lateinit var answer: TextView
+
+    // for Databse
+    lateinit var objHistoryDb: HistoryDb
+    lateinit var cursor: Cursor
+    lateinit var tabledb: SQLiteDatabase
+    lateinit var content: ContentValues
+    lateinit var listview:ListView
+    lateinit var clearbtn:Button
+    lateinit var list: View
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_simple)
@@ -67,6 +81,10 @@ class SimpleActivity : AppCompatActivity() {
                 answer=findViewById(R.id.answer)
                 edtTxteqn=findViewById(R.id.edtTxteqn)
                 edtTxteqn.showSoftInputOnFocus=false;
+        //
+        objHistoryDb= HistoryDb(this@SimpleActivity)
+        tabledb=objHistoryDb.writableDatabase
+        content= ContentValues()
 
 
 
@@ -151,6 +169,9 @@ class SimpleActivity : AppCompatActivity() {
                     val r = result.toString()
                     edtTxteqn.setText(r)
                     answer.text = str
+                    content.put("eqn",str)
+                    content.put("ans",r)
+                    tabledb.insert("simpleHistory",null,content)
                 }
                 btnC.setOnClickListener {
                     // on clicking on ac button we are clearing
@@ -184,6 +205,9 @@ class SimpleActivity : AppCompatActivity() {
                         val intent=Intent(this@SimpleActivity,MenuActivity::class.java)
                         startActivity(intent)
 //                        Toast.makeText(this@SimpleActivity,"clicked menu", Toast.LENGTH_SHORT).show()
+                    }
+                    R.id.history->{
+                        getData()
                     }
                 }
                 return true
@@ -289,4 +313,28 @@ class SimpleActivity : AppCompatActivity() {
                     // at last calling a parse for our expression.
                 }.parse()
             }
+    fun getData(){
+        list = layoutInflater.inflate(R.layout.historylist,null)
+        listview = list.findViewById<ListView>(R.id.listview)
+        clearbtn = list.findViewById<Button>(R.id.clearbtn)
+        val alertDialogBuilder= AlertDialog.Builder(this@SimpleActivity)
+            .setView(list)
+            .setTitle("History")
+            .create()
+            .show()
+
+        cursor=tabledb.query("simpleHistory", arrayOf("_id","eqn","ans"),null,null,null,null,null)
+        populateList()
+        clearbtn.setOnClickListener {
+            tabledb.delete("simpleHistory",null,null)
+            cursor=tabledb.query("simpleHistory", arrayOf("_id","eqn","ans"),null,null,null,null,null)
+            populateList()
         }
+    }
+    fun populateList(){
+        var listAdapter=SimpleCursorAdapter(this@SimpleActivity,android.R.layout.simple_list_item_1,cursor,
+            arrayOf("eqn"),
+            intArrayOf(android.R.id.text1),0)
+        listview.adapter=listAdapter
+    }
+}
