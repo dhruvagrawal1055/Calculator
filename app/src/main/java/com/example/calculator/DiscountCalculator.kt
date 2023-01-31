@@ -11,6 +11,7 @@ import android.widget.Toast
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class DiscountCalculator : AppCompatActivity() {
+    // declaring variables for our text view and button
     lateinit var btn00: Button
     lateinit var btnC: FloatingActionButton
     lateinit var btnback: FloatingActionButton
@@ -48,6 +49,7 @@ class DiscountCalculator : AppCompatActivity() {
         supportActionBar?.setDisplayShowTitleEnabled(false)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setHomeAsUpIndicator(R.drawable.ic_baseline_arrow_back_ios_24)
+        //initializing number buttons
         btnC=findViewById(R.id.btnC)
         btn00=findViewById(R.id.btn00)
         btn0 = findViewById(R.id.btn0)
@@ -147,7 +149,6 @@ class DiscountCalculator : AppCompatActivity() {
                 currprice = currprice + "."
                 display()
                 pricef = currprice.toString().toFloat()
-//                Toast.makeText(this@MainActivity,"$curr",Toast.LENGTH_LONG).show()
             }
             if(j){
                 currdiscount = currdiscount + "."
@@ -155,13 +156,11 @@ class DiscountCalculator : AppCompatActivity() {
                 discountf = currdiscount.toString().toFloat()
             }
         }
-
         btn0.setOnClickListener {
             if(i) {
                 currprice = currprice + "0"
                 display()
                 pricef = currprice.toString().toFloat()
-//                Toast.makeText(this@MainActivity,"$curr",Toast.LENGTH_LONG).show()
             }
             if(j){
                 currdiscount = currdiscount + "0"
@@ -174,7 +173,6 @@ class DiscountCalculator : AppCompatActivity() {
                 currprice = currprice + "00"
                 display()
                 pricef = currprice.toString().toFloat()
-//                Toast.makeText(this@MainActivity,"$curr",Toast.LENGTH_LONG).show()
             }
             if(j){
                 currdiscount = currdiscount + "00"
@@ -187,7 +185,6 @@ class DiscountCalculator : AppCompatActivity() {
                 currprice = currprice + "1"
                 display()
                 pricef = currprice.toString().toFloat()
-//                Toast.makeText(this@MainActivity,"$curr",Toast.LENGTH_LONG).show()
             }
             if (j){
                 currdiscount = currdiscount + "1"
@@ -202,14 +199,12 @@ class DiscountCalculator : AppCompatActivity() {
                 currprice = currprice + "2"
                 display()
                 pricef = currprice.toString().toFloat()
-//                Toast.makeText(this@MainActivity,"$curr",Toast.LENGTH_LONG).show()
             }
             if(j){
                 currdiscount = currdiscount + "2"
                 display()
                 discountf = currdiscount.toString().toFloat()
             }
-//                Toast.makeText(this@MainActivity,"$curr",Toast.LENGTH_LONG).show()
 
         }
         btn3.setOnClickListener {
@@ -218,14 +213,12 @@ class DiscountCalculator : AppCompatActivity() {
                 currprice = currprice + "3"
                 display()
                 pricef = currprice.toString().toFloat()
-//                Toast.makeText(this@MainActivity,"$curr",Toast.LENGTH_LONG).show()
             }
             if(j){
                 currdiscount = currdiscount + "3"
                 display()
                 discountf = currdiscount.toString().toFloat()
             }
-//                Toast.makeText(this@MainActivity,"$curr",Toast.LENGTH_LONG).show()
 
         }
         btn4.setOnClickListener {
@@ -234,14 +227,12 @@ class DiscountCalculator : AppCompatActivity() {
                 currprice = currprice + "4"
                 display()
                 pricef = currprice.toString().toFloat()
-//                Toast.makeText(this@MainActivity,"$curr",Toast.LENGTH_LONG).show()
             }
             if(j){
                 currdiscount = currdiscount + "4"
                 display()
                 discountf = currdiscount.toString().toFloat()
             }
-//                Toast.makeText(this@MainActivity,"$curr",Toast.LENGTH_LONG).show()
 
         }
         btn5.setOnClickListener {
@@ -250,14 +241,12 @@ class DiscountCalculator : AppCompatActivity() {
                 currprice = currprice + "5"
                 display()
                 pricef = currprice.toString().toFloat()
-//                Toast.makeText(this@MainActivity,"$curr",Toast.LENGTH_LONG).show()
             }
             if(j){
                 currdiscount = currdiscount + "5"
                 display()
                 discountf = currdiscount.toString().toFloat()
             }
-//                Toast.makeText(this@MainActivity,"$curr",Toast.LENGTH_LONG).show()
 
         }
         btn6.setOnClickListener {
@@ -266,14 +255,12 @@ class DiscountCalculator : AppCompatActivity() {
                 currprice = currprice + "6"
                 display()
                 pricef = currprice.toString().toFloat()
-//                Toast.makeText(this@MainActivity,"$curr",Toast.LENGTH_LONG).show()
             }
             if(j){
                 currdiscount = currdiscount + "6"
                 display()
                 discountf = currdiscount.toString().toFloat()
             }
-//                Toast.makeText(this@MainActivity,"$curr",Toast.LENGTH_LONG).show()
 
         }
         btn7.setOnClickListener {
@@ -282,14 +269,12 @@ class DiscountCalculator : AppCompatActivity() {
                 currprice = currprice + "7"
                 display()
                 pricef = currprice.toString().toFloat()
-//                Toast.makeText(this@MainActivity,"$curr",Toast.LENGTH_LONG).show()
             }
             if(j){
                 currdiscount = currdiscount + "7"
                 display()
                 discountf = currdiscount.toString().toFloat()
             }
-//                Toast.makeText(this@MainActivity,"$curr",Toast.LENGTH_LONG).show()
 
         }
         btn8.setOnClickListener {
@@ -298,14 +283,12 @@ class DiscountCalculator : AppCompatActivity() {
                 currprice = currprice + "8"
                 display()
                 pricef = currprice.toString().toFloat()
-//                Toast.makeText(this@MainActivity,"$curr",Toast.LENGTH_LONG).show()
             }
             if(j){
                 currdiscount = currdiscount + "8"
                 display()
                 discountf = currdiscount.toString().toFloat()
             }
-//                Toast.makeText(this@MainActivity,"$curr",Toast.LENGTH_LONG).show()
 
         }
         btn9.setOnClickListener {
@@ -314,31 +297,13 @@ class DiscountCalculator : AppCompatActivity() {
                 currprice = currprice + "9"
                 display()
                 pricef = currprice.toString().toFloat()
-//                Toast.makeText(this@MainActivity,"$curr",Toast.LENGTH_LONG).show()
             }
             if(j){
                 currdiscount = currdiscount + "9"
                 display()
                 discountf = currdiscount.toString().toFloat()
             }
-//                Toast.makeText(this@MainActivity,"$curr",Toast.LENGTH_LONG).show()
-
         }
-//            btndiv.setOnClickListener {
-//
-//                if(i) {
-//                    currprice = currprice + "/"
-//                    display()
-//                    pricef = currprice.toString().toFloat()
-////                Toast.makeText(this@MainActivity,"$curr",Toast.LENGTH_LONG).show()
-//                }
-//                if(j){
-//                    currdiscount = currdiscount + "/"
-//                    display()
-//                    discountf = currdiscount.toString().toFloat()
-//                }
-////                Toast.makeText(this@MainActivity,"$curr",Toast.LENGTH_LONG).show()
-//            }
         bequal.setOnClickListener {
             if(discountf>=100){
                 Toast.makeText(this@DiscountCalculator,"Please enter discount in range ",Toast.LENGTH_SHORT).show()

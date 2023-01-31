@@ -10,7 +10,7 @@ import android.widget.TextView
 import android.widget.Toast
 
 class Scientific : AppCompatActivity() {
-    // creating variables for our text view and button
+    // declaring variables for our text view and button
     lateinit var sec: TextView
     lateinit var Main: TextView
     lateinit var cl: Button
@@ -46,14 +46,12 @@ class Scientific : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_scientific)
-
-
-
         supportActionBar?.setElevation(0f)
         supportActionBar?.setBackgroundDrawable(ColorDrawable(Color.parseColor("#f3f3f3")))
         supportActionBar?.setDisplayShowTitleEnabled(false)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setHomeAsUpIndicator(R.drawable.ic_baseline_arrow_back_ios_24)
+        //initializing number buttons
         sec = findViewById(R.id.uppers)
         Main = findViewById(R.id.primarys)
         cl = findViewById(R.id.clear)
@@ -88,19 +86,15 @@ class Scientific : AppCompatActivity() {
         bdiv = findViewById(R.id.bdiv)
 
         // adding on click listener to our all buttons.
+        // on below lines we are appending
+        // the expression to our text view.
         b1.setOnClickListener {
-            // on below line we are appending
-            // the expression to our text view.
             Main.text = (Main.text.toString() + "1")
         }
         b2.setOnClickListener {
-            // on below line we are appending
-            // the expression to our text view.
             Main.text = (Main.text.toString() + "2")
         }
         b3.setOnClickListener {
-            // on below line we are appending
-            // the expression to our text view.
             Main.text = (Main.text.toString() + "3")
         }
         b4.setOnClickListener {
@@ -161,25 +155,11 @@ class Scientific : AppCompatActivity() {
         blog.setOnClickListener {
             Main.text = (Main.text.toString() + "log")
         }
-
         bminus.setOnClickListener {
-            // on clicking on minus we are checking if
-            // the user has already a minus operation on screen.
-            // if minus operation is already present
-            // then we will not do anything.
-            val str: String = Main.text.toString()
-            if (!str.get(index = str.length - 1).equals("-")) {
-                Main.text = (Main.text.toString() + "-")
-            }
+            Main.text = (Main.text.toString() + "-")
         }
         bmul.setOnClickListener {
-            // if mul sign is not present in our
-            // text view then only we are adding
-            // the multiplication operator to it.
-            val str: String = Main.text.toString()
-            if (!str.get(index = str.length - 1).equals("*")) {
-                Main.text = (Main.text.toString() + "*")
-            }
+            Main.text = (Main.text.toString() + "*")
         }
         bsqrt.setOnClickListener {
             if (Main.text.toString().isEmpty()) {
@@ -272,13 +252,13 @@ class Scientific : AppCompatActivity() {
             fun nextChar() {
                 // on below line we are incrementing our position
                 // and moving it to next position.
-                ch = if (++pos < str.length) str[pos].toInt() else -1
+                ch = if (++pos < str.length) str[pos].code else -1
             }
 
             // this method is use to check the extra space
             // present int the expression and removing it.
             fun eat(charToEat: Int): Boolean {
-                while (ch == ' '.toInt()) nextChar()
+                while (ch == ' '.code) nextChar()
                 // on below line we are checking the char pos
                 // if both is equal then we are returning it to true.
                 if (ch == charToEat) {
@@ -304,8 +284,8 @@ class Scientific : AppCompatActivity() {
             fun parseExpression(): Double {
                 var x = parseTerm()
                 while (true) {
-                    if (eat('+'.toInt())) x += parseTerm() // addition
-                    else if (eat('-'.toInt())) x -= parseTerm() // subtraction
+                    if (eat('+'.code)) x += parseTerm() // addition
+                    else if (eat('-'.code)) x -= parseTerm() // subtraction
                     else return x
                 }
             }
@@ -315,8 +295,8 @@ class Scientific : AppCompatActivity() {
             fun parseTerm(): Double {
                 var x = parseFactor()
                 while (true) {
-                    if (eat('*'.toInt())) x *= parseFactor() // multiplication
-                    else if (eat('/'.toInt())) x /= parseFactor() // division
+                    if (eat('*'.code)) x *= parseFactor() // multiplication
+                    else if (eat('/'.code)) x /= parseFactor() // division
                     else return x
                 }
             }
@@ -325,8 +305,8 @@ class Scientific : AppCompatActivity() {
             fun parseFactor(): Double {
                 //on below line we are checking for addition
                 // and subtraction and performing unary operations.
-                if (eat('+'.toInt())) return parseFactor() // unary plus
-                if (eat('-'.toInt())) return -parseFactor() // unary minus
+                if (eat('+'.code)) return parseFactor() // unary plus
+                if (eat('-'.code)) return -parseFactor() // unary minus
                 // creating a double variable for ans.
                 var x: Double
                 // on below line we are creating
@@ -334,17 +314,19 @@ class Scientific : AppCompatActivity() {
                 val startPos = pos
                 // on below line we are checking
                 // for opening and closing parenthesis.
-                if (eat('('.toInt())) { // parentheses
+                if (eat('('.code)) { // parentheses
                     x = parseExpression()
-                    eat(')'.toInt())
-                } else if (ch >= '0'.toInt() && ch <= '9'.toInt() || ch == '.'.toInt()) {
+                    eat(')'.code)
+                }
+                else if (ch >= '0'.code && ch <= '9'.code || ch == '.'.code) {
                     // numbers
-                    while (ch >= '0'.toInt() && ch <= '9'.toInt() || ch == '.'.toInt()) nextChar()
+                    while (ch >= '0'.code && ch <= '9'.code || ch == '.'.code) nextChar()
                     // on below line we are getting sub string from our string using start and pos.
                     x = str.substring(startPos, pos).toDouble()
-                } else if (ch >= 'a'.toInt() && ch <= 'z'.toInt()) {
+                }
+                else if (ch >= 'a'.code && ch <= 'z'.code) {
                     // on below function we are checking for the operator in our expression.
-                    while (ch >= 'a'.toInt() && ch <= 'z'.toInt()) nextChar()
+                    while (ch >= 'a'.code && ch <= 'z'.code) nextChar()
                     val func = str.substring(startPos, pos)
                     // calling a method to parse our factor.
                     x = parseFactor()
@@ -374,7 +356,8 @@ class Scientific : AppCompatActivity() {
                         else throw RuntimeException(
                             "Unknown function: $func"
                         )
-                } else {
+                }
+                else {
                     // if the condition not satisfy then we are returning the exception
                     throw RuntimeException("Unexpected: " + ch.toChar())
                 }

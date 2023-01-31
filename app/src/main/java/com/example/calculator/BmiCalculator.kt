@@ -12,7 +12,6 @@ class BmiCalculator : AppCompatActivity() {
     var i:Boolean=false
     var j:Boolean=false
     var pos: Int=0
-    //    lateinit var btnS:Button
     lateinit var btnC: FloatingActionButton
     lateinit var btn7: Button
     lateinit var btn8: Button
@@ -25,12 +24,10 @@ class BmiCalculator : AppCompatActivity() {
     lateinit var btn3: Button
     lateinit var btn0: Button
     lateinit var btnback:FloatingActionButton
-    //    lateinit var btndiv: Button
     lateinit var spiner: Spinner
     lateinit var txtweight: TextView
     lateinit var bmitxt: TextView
     lateinit var adapter: ArrayAdapter<String>
-    //    lateinit var bminus: Button
     lateinit var btnequal: FloatingActionButton
     lateinit var btndot: Button
 
@@ -92,10 +89,6 @@ class BmiCalculator : AppCompatActivity() {
             spiner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
                 override fun onItemSelected(
                     parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-//                    Toast.makeText(this@MainActivity,arr[position],Toast.LENGTH_SHORT).show()
-//                    bequal.setOnClickListener {
-//                        textView2.text = "${((num - 32) * 5) / 9}"
-//                    }
                     pos=position
                     if(position==0){
                         txtweight.text="Pound";
@@ -103,14 +96,11 @@ class BmiCalculator : AppCompatActivity() {
                     else{
                         txtweight.text="Kg";
                     }
-
-
                 }
                 override fun onNothingSelected(parent: AdapterView<*>?) {
                 }
             }
         }
-
 
         edtTxtHeight.setOnFocusChangeListener { view, edtheight ->
             if(edtheight){
@@ -175,7 +165,6 @@ class BmiCalculator : AppCompatActivity() {
                 currheight = currheight + "."
                 display()
                 height = currheight.toString().toFloat()
-//                Toast.makeText(this@MainActivity,"$curr",Toast.LENGTH_LONG).show()
             }
             if(j){
                 currweight = currweight + "."
@@ -189,7 +178,6 @@ class BmiCalculator : AppCompatActivity() {
                 currheight = currheight + "0"
                 display()
                 height = currheight.toString().toFloat()
-//                Toast.makeText(this@MainActivity,"$curr",Toast.LENGTH_LONG).show()
             }
             if(j){
                 currweight = currweight + "0"
@@ -202,7 +190,6 @@ class BmiCalculator : AppCompatActivity() {
                 currheight = currheight + "1"
                 display()
                 height = currheight.toString().toFloat()
-//                Toast.makeText(this@MainActivity,"$curr",Toast.LENGTH_LONG).show()
             }
             if (j){
                 currweight = currweight + "1"
@@ -217,14 +204,12 @@ class BmiCalculator : AppCompatActivity() {
                 currheight = currheight + "2"
                 display()
                 height = currheight.toString().toFloat()
-//                Toast.makeText(this@MainActivity,"$curr",Toast.LENGTH_LONG).show()
             }
             if(j){
                 currweight = currweight + "2"
                 display()
                 weight = currweight.toString().toFloat()
             }
-//                Toast.makeText(this@MainActivity,"$curr",Toast.LENGTH_LONG).show()
 
         }
         btn3.setOnClickListener {
@@ -233,14 +218,12 @@ class BmiCalculator : AppCompatActivity() {
                 currheight = currheight + "3"
                 display()
                 height = currheight.toString().toFloat()
-//                Toast.makeText(this@MainActivity,"$curr",Toast.LENGTH_LONG).show()
             }
             if(j){
                 currweight = currweight + "3"
                 display()
                 weight = currweight.toString().toFloat()
             }
-//                Toast.makeText(this@MainActivity,"$curr",Toast.LENGTH_LONG).show()
 
         }
         btn4.setOnClickListener {
@@ -249,14 +232,12 @@ class BmiCalculator : AppCompatActivity() {
                 currheight = currheight + "4"
                 display()
                 height = currheight.toString().toFloat()
-//                Toast.makeText(this@MainActivity,"$curr",Toast.LENGTH_LONG).show()
             }
             if(j){
                 currweight = currweight + "4"
                 display()
                 weight = currweight.toString().toFloat()
             }
-//                Toast.makeText(this@MainActivity,"$curr",Toast.LENGTH_LONG).show()
 
         }
         btn5.setOnClickListener {
@@ -265,14 +246,12 @@ class BmiCalculator : AppCompatActivity() {
                 currheight = currheight + "5"
                 display()
                 height = currheight.toString().toFloat()
-//                Toast.makeText(this@MainActivity,"$curr",Toast.LENGTH_LONG).show()
             }
             if(j){
                 currweight = currweight + "5"
                 display()
                 weight = currweight.toString().toFloat()
             }
-//                Toast.makeText(this@MainActivity,"$curr",Toast.LENGTH_LONG).show()
 
         }
         btn6.setOnClickListener {
@@ -281,14 +260,12 @@ class BmiCalculator : AppCompatActivity() {
                 currheight = currheight + "6"
                 display()
                 height = currheight.toString().toFloat()
-//                Toast.makeText(this@MainActivity,"$curr",Toast.LENGTH_LONG).show()
             }
             if(j){
                 currweight = currweight + "6"
                 display()
                 weight = currweight.toString().toFloat()
             }
-//                Toast.makeText(this@MainActivity,"$curr",Toast.LENGTH_LONG).show()
 
         }
         btn7.setOnClickListener {
@@ -297,14 +274,12 @@ class BmiCalculator : AppCompatActivity() {
                 currheight = currheight + "7"
                 display()
                 height = currheight.toString().toFloat()
-//                Toast.makeText(this@MainActivity,"$curr",Toast.LENGTH_LONG).show()
             }
             if(j){
                 currweight = currweight + "7"
                 display()
                 weight = currweight.toString().toFloat()
             }
-//                Toast.makeText(this@MainActivity,"$curr",Toast.LENGTH_LONG).show()
 
         }
         btn8.setOnClickListener {
@@ -313,14 +288,12 @@ class BmiCalculator : AppCompatActivity() {
                 currheight = currheight + "8"
                 display()
                 height = currheight.toString().toFloat()
-//                Toast.makeText(this@MainActivity,"$curr",Toast.LENGTH_LONG).show()
             }
             if(j){
                 currweight = currweight + "8"
                 display()
                 weight = currweight.toString().toFloat()
             }
-//                Toast.makeText(this@MainActivity,"$curr",Toast.LENGTH_LONG).show()
 
         }
         btn9.setOnClickListener {
@@ -329,31 +302,15 @@ class BmiCalculator : AppCompatActivity() {
                 currheight = currheight + "9"
                 display()
                 height = currheight.toString().toFloat()
-//                Toast.makeText(this@MainActivity,"$curr",Toast.LENGTH_LONG).show()
             }
             if(j){
                 currweight = currweight + "9"
                 display()
                 weight = currweight.toString().toFloat()
             }
-//                Toast.makeText(this@MainActivity,"$curr",Toast.LENGTH_LONG).show()
 
         }
-//            btndiv.setOnClickListener {
-//
-//                if(i) {
-//                    currheight = currheight + "/"
-//                    display()
-//                    height = currheight.toString().toFloat()
-////                Toast.makeText(this@MainActivity,"$curr",Toast.LENGTH_LONG).show()
-//                }
-//                if(j){
-//                    currweight = currweight + "/"
-//                    display()
-//                    weight = currweight.toString().toFloat()
-//                }
-////                Toast.makeText(this@MainActivity,"$curr",Toast.LENGTH_LONG).show()
-//            }
+
         btnequal.setOnClickListener {
             if(pos==0){
 //                val int = height.toInt()
